@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "tdd-pairing-demo",
   "author": "Level up",
-  "main": "server.js",
+  "main": "app/main.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app/main.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },

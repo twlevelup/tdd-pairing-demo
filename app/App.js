@@ -8,5 +8,10 @@ class App {
       ]
     }
   }
+
+  run() {
+    console.log('Coming soon');
+  }
 }
-module.exports.App = App;
+
+module.exports = App;
