@@ -1,0 +1,17 @@
+{
+  "name": "tdd-pairing-demo",
+  "version": "1.0.0",
+  "description": "tdd-pairing-demo",
+  "author": "Level up",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest"
+  },
+  "dependencies": {},
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^25.5.3"
+  }
+}
