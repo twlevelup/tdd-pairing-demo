@@ -1,7 +1,11 @@
+// This is the App class
 class App {
   constructor() {
     this.menu = {
-      options: ['Withdraw money']
+      options: [
+        'Check balance',
+        'Withdraw money'
+      ]
     }
   }
 }
