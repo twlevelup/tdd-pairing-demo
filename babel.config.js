@@ -1,3 +1,6 @@
+/*
+  Configuration to run tests written in TypeScript
+*/
 module.exports = {
   presets: [
     ['@babel/preset-env',

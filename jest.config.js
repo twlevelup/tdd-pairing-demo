@@ -1,3 +1,6 @@
+/*
+  Configuration to run only tests that are inside app/ folder
+*/
 module.exports = {
   "roots": [
     "<rootDir>/app"
