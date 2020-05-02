@@ -5,8 +5,8 @@
   "author": "Level up",
   "main": "app/main.js",
   "scripts": {
-    "start": "node app/main.js",
-    "build": "tsc",
+    "start": "node dist/app/main.js",
+    "prestart": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   },
