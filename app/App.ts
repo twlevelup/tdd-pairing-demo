@@ -1,5 +1,7 @@
 // This is the App class
-class App {
+export class App {
+  private readonly menu: { options: Array<string> };
+
   constructor() {
     this.menu = {
       options: [
@@ -9,9 +11,11 @@ class App {
     }
   }
 
-  run() {
+  public getMenuOptions(): Array<string> {
+    return this.menu.options;
+  }
+
+  public run(): void {
     console.log('Coming soon');
   }
 }
-
-module.exports = App;
