@@ -5,11 +5,11 @@ describe('Menu', () => {
   const app = new App();
   const menuOptions = app.getMenuOptions();
 
-  test('The Menu has an option to Withdraw money', () => {
+  it('has an option to Withdraw money', () => {
     expect(menuOptions).toContain('Withdraw money');
   });
 
-  test('The Menu has an option to Check balance', () => {
+  it('has an option to Check balance', () => {
     expect(menuOptions).toContain('Check balance');
   });
 });
