@@ -1,5 +1,5 @@
-import { LineReader } from './LineReader'
-import { LinePrinter } from './LinePrinter';
+import { LineReader } from './InputOutput/LineReader'
+import { LinePrinter } from './InputOutput/LinePrinter';
 import { Menu } from './Menu';
 // This is the App class
 export class App {
