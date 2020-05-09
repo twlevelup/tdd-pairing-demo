@@ -6,8 +6,8 @@ import { Menu } from './Menu';
 type ConstructorArgs = { linePrinter?: LinePrinter, lineReader?: LineReader, menu?: Menu; }
 export class App {
   private readonly menu: Menu;
-  private readonly linePrinter: LinePrinter
-  private readonly lineReader: LineReader
+  private readonly linePrinter: LinePrinter;
+  private readonly lineReader: LineReader;
 
   constructor({
     menu = new Menu(),
@@ -26,7 +26,9 @@ export class App {
   public run(): void {
     this.linePrinter.print('Coming soon');
     this.linePrinter.print(this.menu.menuOptionsToString());
-    const value = this.lineReader.read();
+    const value = this.lineReader.read('Please select an option: ');
     this.linePrinter.print(`You entered: ${value}`);
+    this.menu.menuFilterOption(value)
+
   }
 }

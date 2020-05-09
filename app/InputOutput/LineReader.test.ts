@@ -17,7 +17,7 @@ describe(ConsoleReader, () => {
   })
 
   it('reads a string', () => {
-    lineReader.read();
+    lineReader.read("Enter a value");
 
     expect(readline.question).toHaveBeenCalledTimes(1);
     expect(readline.question).toHaveReturnedWith('something');
