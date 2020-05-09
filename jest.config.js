@@ -7,7 +7,6 @@ module.exports = {
   ],
   "testMatch": [
     "**/app/__tests__/**/*.+(ts|tsx|js)",
-    "**/app/?(*.)+(spec|test).+(ts|tsx|js)"
+    "**/app/**/?(*.)+(spec|test).+(ts|tsx|js)"
   ]
 }
-
