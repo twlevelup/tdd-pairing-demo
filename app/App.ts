@@ -24,11 +24,17 @@ export class App {
   }
 
   public run(): void {
-    this.linePrinter.print('Coming soon');
-    this.linePrinter.print(this.menu.menuOptionsToString());
-    const value = this.lineReader.read('Please select an option: ');
-    this.linePrinter.print(`You entered: ${value}`);
-    this.menu.menuFilterOption(value)
+    
+    let exitApp:Boolean = true;
+
+    // exit the app only if user press 4
+    while(exitApp){
+      this.linePrinter.print('Coming soon');
+      this.linePrinter.print(this.menu.menuOptionsToString());
+      const value = this.lineReader.read('Please select an option: ');
+      this.linePrinter.print(`You entered: ${value}`);
+      exitApp = this.menu.menuFilterOption(value);
+    }
 
   }
 }
