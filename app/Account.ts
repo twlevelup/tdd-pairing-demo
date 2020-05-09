@@ -4,9 +4,9 @@ export class Account {
     private linePrinter: LinePrinter
     private ammountValue: number;
 
-    constructor(linePrinter: LinePrinter = new ConsolePrinter()) {
+    constructor(linePrinter: LinePrinter = new ConsolePrinter(), initialBalance?: number) {
         this.linePrinter = linePrinter;
-        this.ammountValue = 100;
+        this.ammountValue = initialBalance ?? 0;
     }
 
     checkBalance(): number {
@@ -15,7 +15,6 @@ export class Account {
 
     depositMoney(depoistAmount: number): number {
         this.ammountValue += depoistAmount;
-        this.linePrinter.print(`Current balance is ${this.ammountValue}`);
         return this.ammountValue
     };
 }

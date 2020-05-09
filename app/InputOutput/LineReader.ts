@@ -14,9 +14,15 @@ export class ConsoleReader implements LineReader {
 
 export class StubReader implements LineReader {
   private lineToRead: string = '';
+  private lastQuestion: string | null = null;
 
   public read(query: string) {
+    this.lastQuestion = query;
     return `${this.lineToRead}`;
+  }
+
+  public getLastQuestion(): string | null {
+    return this.lastQuestion;
   }
 
   public setLineToRead(newLineToRead: string) {

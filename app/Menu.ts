@@ -1,7 +1,9 @@
 import { Account } from './Account';
 import { LinePrinter, ConsolePrinter } from './InputOutput/LinePrinter';
 import { LineReader, ConsoleReader } from './InputOutput/LineReader';
+
 // This is the Menu class
+type ConstructorArgs = { options?: Array<string>, account?: Account, linePrinter?: LinePrinter, lineReader?: LineReader }
 export class Menu
 {
   private readonly options: Array<string>;
@@ -9,16 +11,17 @@ export class Menu
   private readonly linePrinter: LinePrinter;
   private readonly lineReader: LineReader;
 
-  constructor(options: Array<string> = new Array(
+  constructor({
+    options = new Array(
     'Check balance',
     'Withdraw money',
     'Deposit money',
     'Quit'
     ),
-    linePrinter: LinePrinter = new ConsolePrinter(),
-    lineReader: LineReader = new ConsoleReader(),
-    account: Account= new Account()
-  ) {
+    account = new Account(),
+    linePrinter = new ConsolePrinter(),
+    lineReader = new ConsoleReader(),
+  } : ConstructorArgs = {}) {
     this.options = options;
     this.account = account;
     this.linePrinter = linePrinter;
@@ -32,13 +35,14 @@ export class Menu
   public menuFilterOption(option: string) {
     if (option == '1'){
         const balance = this.account.checkBalance();
-        this.linePrinter.print(`Current balance is ${balance}`)
+        this.linePrinter.print(`Your current balance is: $${balance}`)
     }
 
     else if (option == '3'){
-        const depositAmount = this.lineReader.read('Please select an option: ');
+        const depositAmount = this.lineReader.read('Please enter an amount to deposit: ');
         this.account.depositMoney(Number(depositAmount));
-
+        this.linePrinter.print(`You have deposited $${depositAmount}.`);
+        this.linePrinter.print(`Your new account balance is: $${this.account.checkBalance()}`);
     }
 }
 
