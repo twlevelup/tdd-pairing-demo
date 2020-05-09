@@ -1,17 +1,19 @@
-import { LineReader } from './InputOutput/LineReader'
-import { LinePrinter } from './InputOutput/LinePrinter';
+import { LineReader, ConsoleReader } from './InputOutput/LineReader'
+import { LinePrinter, ConsolePrinter } from './InputOutput/LinePrinter';
 import { Menu } from './Menu';
+
 // This is the App class
+type ConstructorArgs = { linePrinter?: LinePrinter, lineReader?: LineReader, menu?: Menu; }
 export class App {
   private readonly menu: Menu;
   private readonly linePrinter: LinePrinter
   private readonly lineReader: LineReader
 
-  constructor(
-    menu: Menu = new Menu(),
-    linePrinter: LinePrinter = new LinePrinter(),
-    lineReader: LineReader = new LineReader()
-  ) {
+  constructor({
+    menu = new Menu(),
+    linePrinter = new ConsolePrinter(),
+    lineReader = new ConsoleReader(),
+  }: ConstructorArgs = {}) {
     this.menu = menu;
     this.linePrinter = linePrinter;
     this.lineReader = lineReader;
