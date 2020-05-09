@@ -32,10 +32,25 @@ export class Menu
     return this.options;
   }
 
-  public menuFilterOption(option: string) {
+  public menuFilterOption(option: string) :Boolean {
     if (option == '1'){
         const balance = this.account.checkBalance();
         this.linePrinter.print(`Your current balance is: $${balance}`)
+        //return true;
+    }
+
+    else if (option == '2'){
+      const withDrawAmount = this.lineReader.read('Please enter an amount to withdraw: ');
+      const transactionStatus = this.account.withDrawMoney(Number(withDrawAmount));
+      if (transactionStatus == 1){
+        this.linePrinter.print(`You have withdrawn $${withDrawAmount}`);
+        this.linePrinter.print(`Your new account balance is: $${this.account.checkBalance()}`)
+      }
+      else {
+        this.linePrinter.print(`You can not withdraw amount $${withDrawAmount}`); 
+        this.linePrinter.print(`Your new account balance is: $${this.account.checkBalance()}`)
+      }
+      //return true;
     }
 
     else if (option == '3'){
@@ -43,7 +58,14 @@ export class Menu
         this.account.depositMoney(Number(depositAmount));
         this.linePrinter.print(`You have deposited $${depositAmount}.`);
         this.linePrinter.print(`Your new account balance is: $${this.account.checkBalance()}`);
+        //return true;
     }
+
+    else{
+      return false;
+
+  } 
+  return true
 }
 
   public menuOptionsToString(): string {

@@ -15,6 +15,16 @@ export class Account {
 
     depositMoney(depoistAmount: number): number {
         this.ammountValue += depoistAmount;
-        return this.ammountValue
+        return this.ammountValue;
     };
+
+    withDrawMoney(withDrawAmount: number): number{
+        if (withDrawAmount > this.checkBalance()){
+            return 0;
+        }
+        this.ammountValue -= withDrawAmount;
+        return 1;
+    };
+
+    
 }
