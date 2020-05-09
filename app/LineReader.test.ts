@@ -8,7 +8,7 @@ describe('LineReader', () => {
   jest.spyOn(readline, 'question').mockImplementation(() => 'something');
 
   it('reads a string', () => {
-    lineReader.read();
+    lineReader.read('something');
 
     expect(readline.question).toHaveBeenCalledTimes(1);
     expect(readline.question).toHaveReturnedWith('something');
