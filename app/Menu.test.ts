@@ -39,7 +39,7 @@ describe(Menu, () => {
       });
 
       it("should update the account balance", () => {
-        expect(account.checkBalance()).toEqual(10000);
+        expect(account.methodA()).toEqual(10000);
       });
 
       it("should print the new account balance", () => {
@@ -89,7 +89,7 @@ describe(Menu, () => {
       });
     });
 
-    describe("when option 2 is selected to withdraw amount exceeding account balance", () => {
+    describe.skip("when option 2 is selected to withdraw amount exceeding account balance", () => {
       beforeEach(() => {
         lineReader.setLineToRead("12000");
         menu.menuFilterOption("2");

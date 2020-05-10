@@ -12,19 +12,19 @@ export class Account {
     this.ammountValue = initialBalance ?? 0;
   }
 
-  checkBalance(): number {
+  /* Method to Check balance money */
+  methodA(): number {
     return this.ammountValue;
   }
 
-  depositMoney(depoistAmount: number): number {
+  /* Method to Deposit money */
+  methodB(depoistAmount: number): number {
     this.ammountValue += depoistAmount;
     return this.ammountValue;
   }
 
-  withDrawMoney(withDrawAmount: number): number {
-    if (withDrawAmount > this.checkBalance()) {
-      return 0;
-    }
+  /* Method to Withdraw money */
+  methodC(withDrawAmount: number): number {
     this.ammountValue -= withDrawAmount;
     return 1;
   }
