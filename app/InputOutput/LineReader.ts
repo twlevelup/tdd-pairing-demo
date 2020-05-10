@@ -1,4 +1,4 @@
-import readline from 'readline-sync';
+import readline from "readline-sync";
 
 export interface LineReader {
   // Reads a line as a string
@@ -13,7 +13,7 @@ export class ConsoleReader implements LineReader {
 }
 
 export class StubReader implements LineReader {
-  private lineToRead: string = '';
+  private lineToRead: string = "";
   private lastQuestion: string | null = null;
 
   public read(query: string) {

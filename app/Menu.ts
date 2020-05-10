@@ -1,11 +1,15 @@
-import { Account } from './Account';
-import { LinePrinter, ConsolePrinter } from './InputOutput/LinePrinter';
-import { LineReader, ConsoleReader } from './InputOutput/LineReader';
+import { Account } from "./Account";
+import { LinePrinter, ConsolePrinter } from "./InputOutput/LinePrinter";
+import { LineReader, ConsoleReader } from "./InputOutput/LineReader";
 
 // This is the Menu class
-type ConstructorArgs = { options?: Array<string>, account?: Account, linePrinter?: LinePrinter, lineReader?: LineReader }
-export class Menu
-{
+type ConstructorArgs = {
+  options?: Array<string>;
+  account?: Account;
+  linePrinter?: LinePrinter;
+  lineReader?: LineReader;
+};
+export class Menu {
   private readonly options: Array<string>;
   private readonly account: Account;
   private readonly linePrinter: LinePrinter;
@@ -13,65 +17,72 @@ export class Menu
 
   constructor({
     options = new Array(
-    'Check balance',
-    'Withdraw money',
-    'Deposit money',
-    'Quit'
+      "Check balance",
+      "Withdraw money",
+      "Deposit money",
+      "Quit"
     ),
     account = new Account(),
     linePrinter = new ConsolePrinter(),
     lineReader = new ConsoleReader(),
-  } : ConstructorArgs = {}) {
+  }: ConstructorArgs = {}) {
     this.options = options;
     this.account = account;
     this.linePrinter = linePrinter;
-    this.lineReader =lineReader;
+    this.lineReader = lineReader;
   }
 
   public getOptions(): Array<string> {
     return this.options;
   }
 
-  public menuFilterOption(option: string) :Boolean {
-    if (option == '1'){
-        const balance = this.account.checkBalance();
-        this.linePrinter.print(`Your current balance is: $${balance}`)
-        //return true;
-    }
-
-    else if (option == '2'){
-      const withDrawAmount = this.lineReader.read('Please enter an amount to withdraw: ');
-      const transactionStatus = this.account.withDrawMoney(Number(withDrawAmount));
-      if (transactionStatus == 1){
+  public menuFilterOption(option: string): Boolean {
+    if (option == "1") {
+      const balance = this.account.checkBalance();
+      this.linePrinter.print(`Your current balance is: $${balance}`);
+      //return true;
+    } else if (option == "2") {
+      const withDrawAmount = this.lineReader.read(
+        "Please enter an amount to withdraw: "
+      );
+      const transactionStatus = this.account.withDrawMoney(
+        Number(withDrawAmount)
+      );
+      if (transactionStatus == 1) {
         this.linePrinter.print(`You have withdrawn $${withDrawAmount}`);
-        this.linePrinter.print(`Your new account balance is: $${this.account.checkBalance()}`)
-      }
-      else {
-        this.linePrinter.print(`You can not withdraw amount $${withDrawAmount}`); 
-        this.linePrinter.print(`Your new account balance is: $${this.account.checkBalance()}`)
+        this.linePrinter.print(
+          `Your new account balance is: $${this.account.checkBalance()}`
+        );
+      } else {
+        this.linePrinter.print(
+          `You can not withdraw amount $${withDrawAmount}`
+        );
+        this.linePrinter.print(
+          `Your new account balance is: $${this.account.checkBalance()}`
+        );
       }
       //return true;
-    }
-
-    else if (option == '3'){
-        const depositAmount = this.lineReader.read('Please enter an amount to deposit: ');
-        this.account.depositMoney(Number(depositAmount));
-        this.linePrinter.print(`You have deposited $${depositAmount}.`);
-        this.linePrinter.print(`Your new account balance is: $${this.account.checkBalance()}`);
-        //return true;
-    }
-
-    else{
+    } else if (option == "3") {
+      const depositAmount = this.lineReader.read(
+        "Please enter an amount to deposit: "
+      );
+      this.account.depositMoney(Number(depositAmount));
+      this.linePrinter.print(`You have deposited $${depositAmount}.`);
+      this.linePrinter.print(
+        `Your new account balance is: $${this.account.checkBalance()}`
+      );
+      //return true;
+    } else {
       return false;
-
-  } 
-  return true
-}
+    }
+    return true;
+  }
 
   public menuOptionsToString(): string {
     let menuOptionsToString = "";
-    return this.getOptions().reduce((accumulator, currentValue, index) =>
-      accumulator + `${index+1}. ${currentValue}\n`,
+    return this.getOptions().reduce(
+      (accumulator, currentValue, index) =>
+        accumulator + `${index + 1}. ${currentValue}\n`,
       menuOptionsToString
     );
   }
