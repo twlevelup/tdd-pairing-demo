@@ -29,10 +29,10 @@ export class App {
 
   public run(): void {
     let exitApp: Boolean = true;
+    this.linePrinter.print("Welcome to the Magic ATM");
 
     // exit the app only if user press 4
     while (exitApp) {
-      this.linePrinter.print("Coming soon");
       this.linePrinter.print(this.menu.menuOptionsToString());
       const value = this.lineReader.read("Please select an option: ");
       this.linePrinter.print(`You entered: ${value}`);
