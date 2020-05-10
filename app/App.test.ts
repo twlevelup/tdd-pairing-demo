@@ -14,18 +14,24 @@ describe("Menu", () => {
     app = new App({ lineReader, linePrinter });
   });
 
-  describe("Menu options", () => {
-    let menuOptions: string[];
-    beforeEach(() => {
-      menuOptions = app.getMenuOptions();
-    });
+  it("prints a Welcome Message", () => {
+    app.run();
+    expect(linePrinter.getPrintedLine(0)).toEqual("Welcome to the Magic ATM");
+  });
 
-    it("has an option to Withdraw money", () => {
-      expect(menuOptions).toContain("Withdraw money");
-    });
+  it("prints Menu options", () => {
+    const menuOptions = [
+      "Withdraw money",
+      "Check balance",
+      "Deposit money",
+      "Quit",
+    ];
+    app.run();
 
-    it("has an option to Check balance", () => {
-      expect(menuOptions).toContain("Check balance");
+    menuOptions.forEach((menuOption) => {
+      expect(linePrinter.getPrintedLine(1)).toEqual(
+        expect.stringContaining(menuOption)
+      );
     });
   });
 
