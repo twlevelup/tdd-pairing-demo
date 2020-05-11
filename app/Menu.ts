@@ -36,6 +36,7 @@ export class Menu {
     return this.options;
   }
 
+
   public menuFilterOption(option: string): Boolean {
     if (option == "1") {
       const balance = this.account.cb();

@@ -17,6 +17,7 @@ export class Account {
     return this.ammountValue;
   }
 
+
   /* Method to Deposit money */
   dm(depoistAmount: number): number {
     this.ammountValue += depoistAmount;
