@@ -39,7 +39,7 @@ describe(Menu, () => {
       });
 
       it("should update the account balance", () => {
-        expect(account.methodA()).toEqual(10000);
+        expect(account.cb()).toEqual(10000);
       });
 
       it("should print the new account balance", () => {
@@ -89,7 +89,7 @@ describe(Menu, () => {
       });
     });
 
-    describe.skip("when option 2 is selected to withdraw amount exceeding account balance", () => {
+    describe("when option 2 is selected to withdraw amount exceeding account balance", () => {
       beforeEach(() => {
         lineReader.setLineToRead("12000");
         menu.menuFilterOption("2");
@@ -101,7 +101,7 @@ describe(Menu, () => {
         );
       });
 
-      it("should not procced withdrawl", () => {
+      it.skip("should not procced withdrawl", () => {
         expect(linePrinter.getPrintedLine(0)).toEqual(
           "You can not withdraw amount $12000"
         );

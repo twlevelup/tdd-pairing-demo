@@ -38,27 +38,27 @@ export class Menu {
 
   public menuFilterOption(option: string): Boolean {
     if (option == "1") {
-      const balance = this.account.methodA();
+      const balance = this.account.cb();
       this.linePrinter.print(`Your current balance is: $${balance}`);
       //return true;
     } else if (option == "2") {
       const withDrawAmount = this.lineReader.read(
         "Please enter an amount to withdraw: "
       );
-      const transactionStatus = this.account.methodC(
+      const transactionStatus = this.account.wm(
         Number(withDrawAmount)
       );
       if (transactionStatus == 1) {
         this.linePrinter.print(`You have withdrawn $${withDrawAmount}`);
         this.linePrinter.print(
-          `Your new account balance is: $${this.account.methodA()}`
+          `Your new account balance is: $${this.account.cb()}`
         );
       } else {
         this.linePrinter.print(
           `You can not withdraw amount $${withDrawAmount}`
         );
         this.linePrinter.print(
-          `Your new account balance is: $${this.account.methodA()}`
+          `Your new account balance is: $${this.account.cb()}`
         );
       }
       //return true;
@@ -66,10 +66,10 @@ export class Menu {
       const depositAmount = this.lineReader.read(
         "Please enter an amount to deposit: "
       );
-      this.account.methodB(Number(depositAmount));
+      this.account.dm(Number(depositAmount));
       this.linePrinter.print(`You have deposited $${depositAmount}.`);
       this.linePrinter.print(
-        `Your new account balance is: $${this.account.methodA()}`
+        `Your new account balance is: $${this.account.cb()}`
       );
       //return true;
     } else {
