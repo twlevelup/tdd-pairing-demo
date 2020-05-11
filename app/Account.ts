@@ -13,18 +13,18 @@ export class Account {
   }
 
   /* Method to Check balance money */
-  methodA(): number {
+  cb(): number {
     return this.ammountValue;
   }
 
   /* Method to Deposit money */
-  methodB(depoistAmount: number): number {
+  dm(depoistAmount: number): number {
     this.ammountValue += depoistAmount;
     return this.ammountValue;
   }
 
   /* Method to Withdraw money */
-  methodC(withDrawAmount: number): number {
+  wm(withDrawAmount: number): number {
     this.ammountValue -= withDrawAmount;
     return 1;
   }
