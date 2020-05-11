@@ -1,10 +1,9 @@
-import { App } from './App';
-import { StubReader } from './InputOutput/LineReader';
-import { StubPrinter } from './InputOutput/LinePrinter';
+import { App } from "./App";
+import { StubReader } from "./InputOutput/LineReader";
+import { StubPrinter } from "./InputOutput/LinePrinter";
 
 // This block tests the menu
-describe('Menu', () => {
-
+describe("Menu", () => {
   let app: App;
   let lineReader: StubReader;
   let linePrinter: StubPrinter;
@@ -13,28 +12,36 @@ describe('Menu', () => {
     lineReader = new StubReader();
     linePrinter = new StubPrinter();
     app = new App({ lineReader, linePrinter });
-  })
+  });
 
-  describe('Menu options', () => {
-    let menuOptions: string[];
-    beforeEach(() => {
-      menuOptions = app.getMenuOptions();
-    })
+  it("prints a Welcome Message", () => {
+    app.run();
+    expect(linePrinter.getPrintedLine(0)).toEqual("Welcome to the Magic ATM");
+  });
 
-    it('has an option to Withdraw money', () => {
-      expect(menuOptions).toContain('Withdraw money');
+  it("prints Menu options", () => {
+    const menuOptions = [
+      "Withdraw money",
+      "Check balance",
+      "Deposit money",
+      "Quit",
+    ];
+    app.run();
+
+    menuOptions.forEach((menuOption) => {
+      expect(linePrinter.getPrintedLine(1)).toEqual(
+        expect.stringContaining(menuOption)
+      );
     });
+  });
 
-    it('has an option to Check balance', () => {
-      expect(menuOptions).toContain('Check balance');
-    });
-  })
-
-  it('waits reads a line and logs it to the console', () => {
-    lineReader.setLineToRead('This line was set in the test');
+  it("waits reads a line and logs it to the console", () => {
+    lineReader.setLineToRead("This line was set in the test");
 
     app.run();
 
-    expect(linePrinter.getPrintedLine(2)).toEqual('You entered: This line was set in the test');
-  })
+    expect(linePrinter.getPrintedLine(2)).toEqual(
+      "You entered: This line was set in the test"
+    );
+  });
 });

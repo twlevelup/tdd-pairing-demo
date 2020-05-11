@@ -18,6 +18,11 @@ This is a ATM simulator built using [TDD](https://www.freecodecamp.org/news/test
 
 - Run `./go test`
 
+
+### Running the tests on watch mode
+
+- Run `./go test:watch`
+
 ## Project Tech Stack
 
 * Node

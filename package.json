@@ -8,9 +8,13 @@
     "start": "node dist/app/main.js",
     "prestart": "tsc",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "format": "prettier -c app",
+    "format:fix": "prettier --write app"
   },
-  "dependencies": {},
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
@@ -20,7 +24,7 @@
     "@types/node": "^13.13.4",
     "@types/readline-sync": "^1.4.3",
     "jest": "^25.5.3",
-    "readline-sync": "^1.4.10",
+    "prettier": "2.0.5",
     "typescript": "^3.8.3"
   }
 }

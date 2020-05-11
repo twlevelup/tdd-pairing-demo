@@ -1,30 +1,32 @@
 import { LinePrinter, ConsolePrinter } from "./InputOutput/LinePrinter";
 
 export class Account {
-    private linePrinter: LinePrinter
-    private ammountValue: number;
+  private linePrinter: LinePrinter;
+  private ammountValue: number;
 
-    constructor(linePrinter: LinePrinter = new ConsolePrinter(), initialBalance?: number) {
-        this.linePrinter = linePrinter;
-        this.ammountValue = initialBalance ?? 0;
-    }
+  constructor(
+    linePrinter: LinePrinter = new ConsolePrinter(),
+    initialBalance?: number
+  ) {
+    this.linePrinter = linePrinter;
+    this.ammountValue = initialBalance ?? 0;
+  }
 
-    checkBalance(): number {
-        return this.ammountValue;
-    }
+  /* Method to Check balance money */
+  cb(): number {
+    return this.ammountValue;
+  }
 
-    depositMoney(depoistAmount: number): number {
-        this.ammountValue += depoistAmount;
-        return this.ammountValue;
-    };
 
-    withDrawMoney(withDrawAmount: number): number{
-        if (withDrawAmount > this.checkBalance()){
-            return 0;
-        }
-        this.ammountValue -= withDrawAmount;
-        return 1;
-    };
+  /* Method to Deposit money */
+  dm(depoistAmount: number): number {
+    this.ammountValue += depoistAmount;
+    return this.ammountValue;
+  }
 
-    
+  /* Method to Withdraw money */
+  wm(withDrawAmount: number): number {
+    this.ammountValue -= withDrawAmount;
+    return 1;
+  }
 }
