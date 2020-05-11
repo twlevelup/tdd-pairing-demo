@@ -36,7 +36,6 @@ export class Menu {
     return this.options;
   }
 
-
   public menuFilterOption(option: string): Boolean {
     if (option == "1") {
       const balance = this.account.cb();
@@ -46,9 +45,7 @@ export class Menu {
       const withDrawAmount = this.lineReader.read(
         "Please enter an amount to withdraw: "
       );
-      const transactionStatus = this.account.wm(
-        Number(withDrawAmount)
-      );
+      const transactionStatus = this.account.wm(Number(withDrawAmount));
       if (transactionStatus == 1) {
         this.linePrinter.print(`You have withdrawn $${withDrawAmount}`);
         this.linePrinter.print(

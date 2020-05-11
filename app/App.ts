@@ -28,7 +28,6 @@ export class App {
   }
 
   public run(): void {
-
     let exitApp: Boolean = true;
     this.linePrinter.print("Welcome to the Magic ATM");
 

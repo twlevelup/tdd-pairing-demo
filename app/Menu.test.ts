@@ -51,7 +51,6 @@ describe(Menu, () => {
         );
       });
 
-
       it("should prompt for a deposit amount", () => {
         expect(lineReader.getLastQuestion()).toEqual(
           "Please enter an amount to deposit: "
@@ -112,4 +111,4 @@ describe(Menu, () => {
       });
     });
   });
-})
+});
