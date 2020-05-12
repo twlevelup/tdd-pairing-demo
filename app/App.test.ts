@@ -23,7 +23,6 @@ describe(App, () => {
     const menuOptions = [
       "Withdraw money",
       "Check balance",
-      "Deposit money",
       "Quit",
     ];
     app.run();

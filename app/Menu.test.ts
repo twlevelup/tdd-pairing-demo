@@ -28,36 +28,7 @@ describe(Menu, () => {
     });
 
     describe("when option 3 is selected", () => {
-      beforeEach(() => {
-        lineReader.setLineToRead("1000");
-
-        menu.menuFilterOption("3");
-      });
-
-      it("should prompt for a deposit amount", () => {
-        expect(lineReader.getLastQuestion()).toEqual(
-          "Please enter an amount to deposit: "
-        );
-      });
-
-      it("should update the account balance", () => {
-        expect(account.cb()).toEqual(10000);
-      });
-
-      it("should print the new account balance", () => {
-        expect(linePrinter.getPrintedLine(0)).toEqual(
-          "You have deposited $1000."
-        );
-        expect(linePrinter.getPrintedLine(1)).toEqual(
-          "Your new account balance is: $10000"
-        );
-      });
-
-      it("should prompt for a deposit amount", () => {
-        expect(lineReader.getLastQuestion()).toEqual(
-          "Please enter an amount to deposit: "
-        );
-      });
+      //TODO: Implement deposit functionality
     });
 
     describe("when option 2 is selected", () => {
@@ -81,7 +52,7 @@ describe(Menu, () => {
         );
       });
 
-      it("should not procced withdrawl", () => {
+      it("should not procced withdrawal", () => {
         expect(linePrinter.getPrintedLine(0)).toEqual(
           "You have withdrawn $400"
         );
@@ -97,13 +68,13 @@ describe(Menu, () => {
         menu.menuFilterOption("2");
       });
 
-      it("should prompt for a deposit amount", () => {
+      it("should prompt for an amount to withdraw", () => {
         expect(lineReader.getLastQuestion()).toEqual(
           "Please enter an amount to withdraw: "
         );
       });
 
-      it.skip("should not procced withdrawl", () => {
+      it.skip("should not procced with the withdrawal", () => {
         expect(linePrinter.getPrintedLine(0)).toEqual(
           "You can not withdraw amount $12000"
         );

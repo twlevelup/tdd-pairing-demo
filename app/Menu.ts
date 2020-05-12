@@ -19,7 +19,6 @@ export class Menu {
     options = new Array(
       "Check balance",
       "Withdraw money",
-      "Deposit money",
       "Quit"
     ),
     account = new Account(),
@@ -59,16 +58,6 @@ export class Menu {
           `Your new account balance is: $${this.account.cb()}`
         );
       }
-      //return true;
-    } else if (option == "3") {
-      const depositAmount = this.lineReader.read(
-        "Please enter an amount to deposit: "
-      );
-      this.account.dm(Number(depositAmount));
-      this.linePrinter.print(`You have deposited $${depositAmount}.`);
-      this.linePrinter.print(
-        `Your new account balance is: $${this.account.cb()}`
-      );
       //return true;
     } else {
       return false;
