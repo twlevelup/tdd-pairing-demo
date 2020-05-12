@@ -3,7 +3,7 @@ import { StubReader } from "./InputOutput/LineReader";
 import { StubPrinter } from "./InputOutput/LinePrinter";
 
 // This block tests the menu
-describe("Menu", () => {
+describe(App, () => {
   let app: App;
   let lineReader: StubReader;
   let linePrinter: StubPrinter;
@@ -35,7 +35,7 @@ describe("Menu", () => {
     });
   });
 
-  it("waits reads a line and logs it to the console", () => {
+  it("waits, reads a line and logs it to the console", () => {
     lineReader.setLineToRead("This line was set in the test");
 
     app.run();

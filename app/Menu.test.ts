@@ -4,6 +4,8 @@ import { Account } from "./Account";
 import { StubReader } from "./InputOutput/LineReader";
 
 describe(Menu, () => {
+  const ACCOUNT_INITIAL_BALANCE = 9000;
+
   describe("menuFilterOption", () => {
     let linePrinter: StubPrinter;
     let lineReader: StubReader;
@@ -13,7 +15,7 @@ describe(Menu, () => {
     beforeEach(() => {
       linePrinter = new StubPrinter();
       lineReader = new StubReader();
-      account = new Account(linePrinter, 9000);
+      account = new Account(linePrinter, ACCOUNT_INITIAL_BALANCE);
       menu = new Menu({ linePrinter, lineReader, account });
     });
 
@@ -21,7 +23,7 @@ describe(Menu, () => {
       menu.menuFilterOption("1");
 
       expect(linePrinter.getPrintedLine(0)).toEqual(
-        "Your current balance is: $9000"
+        `Your current balance is: $${ACCOUNT_INITIAL_BALANCE}`
       );
     });
 
@@ -106,7 +108,7 @@ describe(Menu, () => {
           "You can not withdraw amount $12000"
         );
         expect(linePrinter.getPrintedLine(1)).toEqual(
-          "Your new account balance is: $9000"
+          `Your new account balance is: $${ACCOUNT_INITIAL_BALANCE}`
         );
       });
     });

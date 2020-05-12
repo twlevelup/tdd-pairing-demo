@@ -1,5 +1,6 @@
 import { LinePrinter, ConsolePrinter } from "./InputOutput/LinePrinter";
 
+/* This is the Account model */
 export class Account {
   private linePrinter: LinePrinter;
   private ammountValue: number;
@@ -12,7 +13,7 @@ export class Account {
     this.ammountValue = initialBalance ?? 0;
   }
 
-  /* Method to Check balance money */
+  /* Method to Check balance */
   cb(): number {
     return this.ammountValue;
   }
