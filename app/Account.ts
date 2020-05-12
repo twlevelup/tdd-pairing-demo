@@ -1,16 +1,9 @@
-import { LinePrinter, ConsolePrinter } from "./InputOutput/LinePrinter";
-
 /* This is the Account model */
 export class Account {
-  private linePrinter: LinePrinter;
   private ammountValue: number;
 
-  constructor(
-    linePrinter: LinePrinter = new ConsolePrinter(),
-    initialBalance?: number
-  ) {
-    this.linePrinter = linePrinter;
-    this.ammountValue = initialBalance ?? 0;
+  constructor(initialBalance: number = 9000) {
+    this.ammountValue = initialBalance;
   }
 
   /* Method to Check balance */

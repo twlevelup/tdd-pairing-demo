@@ -3,6 +3,7 @@ import { StubPrinter } from "./InputOutput/LinePrinter";
 import { Account } from "./Account";
 import { StubReader } from "./InputOutput/LineReader";
 
+// This block tests the Menu
 describe(Menu, () => {
   const ACCOUNT_INITIAL_BALANCE = 9000;
 
@@ -15,8 +16,16 @@ describe(Menu, () => {
     beforeEach(() => {
       linePrinter = new StubPrinter();
       lineReader = new StubReader();
-      account = new Account(linePrinter, ACCOUNT_INITIAL_BALANCE);
+      account = new Account(ACCOUNT_INITIAL_BALANCE);
       menu = new Menu({ linePrinter, lineReader, account });
+    });
+
+    it("the default account should have balance equal to $9000", () => {
+      const newMenu = new Menu({ linePrinter, lineReader });
+      newMenu.menuFilterOption("1");
+      expect(linePrinter.getPrintedLine(0)).toEqual(
+        `Your current balance is: $${ACCOUNT_INITIAL_BALANCE}`
+      );
     });
 
     it("should print the current balance when option 1 is selected", () => {
@@ -74,6 +83,7 @@ describe(Menu, () => {
         );
       });
 
+      // TODO: I couldn't make it work, skipping this test for now
       it.skip("should not procced with the withdrawal", () => {
         expect(linePrinter.getPrintedLine(0)).toEqual(
           "You can not withdraw amount $12000"

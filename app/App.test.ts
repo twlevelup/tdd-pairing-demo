@@ -2,7 +2,7 @@ import { App } from "./App";
 import { StubReader } from "./InputOutput/LineReader";
 import { StubPrinter } from "./InputOutput/LinePrinter";
 
-// This block tests the menu
+// This block tests the App
 describe(App, () => {
   let app: App;
   let lineReader: StubReader;
@@ -20,11 +20,7 @@ describe(App, () => {
   });
 
   it("prints Menu options", () => {
-    const menuOptions = [
-      "Withdraw money",
-      "Check balance",
-      "Quit",
-    ];
+    const menuOptions = ["Withdraw money", "Check balance", "Quit"];
     app.run();
 
     menuOptions.forEach((menuOption) => {

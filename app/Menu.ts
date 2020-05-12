@@ -16,11 +16,7 @@ export class Menu {
   private readonly lineReader: LineReader;
 
   constructor({
-    options = new Array(
-      "Check balance",
-      "Withdraw money",
-      "Quit"
-    ),
+    options = ["Check balance", "Withdraw money", "Quit"],
     account = new Account(),
     linePrinter = new ConsolePrinter(),
     lineReader = new ConsoleReader(),
