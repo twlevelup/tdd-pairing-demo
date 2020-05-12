@@ -1,15 +1,15 @@
-// This file contains Line Printers for printing lines
+/* This is the interface for a LinePrinter */
 export interface LinePrinter {
   print(messageToPrint: string): void;
 }
 
-// This is the LinePrinter class
+/* This is the LinePrinter implementation */
 export class ConsolePrinter implements LinePrinter {
   public print(messageToPrint: string): void {
     console.log(messageToPrint);
   }
 }
-
+/* Stub class for LinePrinter for testing purposes */
 export class StubPrinter implements LinePrinter {
   private printHistory: string[] = [];
 

@@ -1,17 +1,19 @@
 import readline from "readline-sync";
 
+/* This is the interface for LineReader */
 export interface LineReader {
   // Reads a line as a string
   read(query: string): string;
 }
 
-// This is the LineReader class
+/* This is the LineReader implementation */
 export class ConsoleReader implements LineReader {
   public read(query: string) {
     return readline.question(query);
   }
 }
 
+/* Stub class for LineReader for testing purposes */
 export class StubReader implements LineReader {
   private lineToRead: string = "";
   private lastQuestion: string | null = null;

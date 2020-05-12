@@ -78,10 +78,10 @@ export class Menu {
 
   public menuOptionsToString(): string {
     let menuOptionsToString = "";
-    return this.getOptions().reduce(
-      (accumulator, currentValue, index) =>
-        accumulator + `${index + 1}. ${currentValue}\n`,
-      menuOptionsToString
-    );
+    this.getOptions().forEach((menuOption, index) => {
+      menuOptionsToString += `${index + 1}. ${menuOption}\n`;
+    });
+
+    return menuOptionsToString;
   }
 }
