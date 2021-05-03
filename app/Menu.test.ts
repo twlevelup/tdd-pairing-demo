@@ -36,10 +36,6 @@ describe(Menu, () => {
       );
     });
 
-    describe("when option 3 is selected", () => {
-      //TODO: Implement deposit functionality
-    });
-
     describe("when option 2 is selected", () => {
       beforeEach(() => {
         lineReader.setLineToRead("400");
@@ -93,5 +89,9 @@ describe(Menu, () => {
         );
       });
     });
+  });
+
+  describe("when option 3 is selected", () => {
+    //TODO: Implement deposit functionality
   });
 });
