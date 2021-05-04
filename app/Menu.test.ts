@@ -28,19 +28,17 @@ describe(Menu, () => {
       );
     });
 
-    it("should print the current balance when option 1 is selected", () => {
-      menu.menuFilterOption("1");
-
-      expect(linePrinter.getPrintedLine(0)).toEqual(
-        `Your current balance is: $${ACCOUNT_INITIAL_BALANCE}`
-      );
+    describe("when option 1 is selected", () => {
+      it("should print the current balance when option 1 is selected", () => {
+        menu.menuFilterOption("1");
+  
+        expect(linePrinter.getPrintedLine(0)).toEqual(
+          `Your current balance is: $${ACCOUNT_INITIAL_BALANCE}`
+        );
+      });
     });
 
-    describe("when option 3 is selected", () => {
-      //TODO: Implement deposit functionality
-    });
-
-    describe("when option 2 is selected", () => {
+    describe("when option 2 is selected to withdraw valid amount", () => {
       beforeEach(() => {
         lineReader.setLineToRead("400");
         menu.menuFilterOption("2");
@@ -93,5 +91,9 @@ describe(Menu, () => {
         );
       });
     });
+  });
+
+  describe("when option 3 is selected", () => {
+    //TODO: Implement deposit functionality
   });
 });

@@ -25,7 +25,7 @@ We will be incrementally adding more functionality by delivering small releases.
     * **Quit** - As a customer, I would like to continue choosing options until I choose to 'Quit'.
 
 1. **Second Release**
-    * **Unsuccessful Withdrawal** - As a customer, I would like to be notified if the money I tried to withdraw was not available by seeing the message, “Your balance is smaller than the withdraw amount.”, so that I know that I need to select a different amount.
+    * **Unsuccessful Withdrawal** - As a customer, I would like to be notified if the money I tried to withdraw was not available by seeing the message, “You can not withdraw amount $amount”, so that I know that I need to select a different amount.
 
     * **Deposit Money** - As a customer, I would like to be able to deposit money to an account.
 
