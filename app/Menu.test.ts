@@ -44,7 +44,7 @@ describe(Menu, () => {
         menu.menuFilterOption("2");
       });
 
-      it("should prompt for a deposit amount", () => {
+      it("should prompt for a withdrawal amount", () => {
         expect(lineReader.getLastQuestion()).toEqual(
           "Please enter an amount to withdraw: "
         );
@@ -91,9 +91,10 @@ describe(Menu, () => {
         );
       });
     });
-  });
+    
+    describe("when option 3 is selected", () => {
+      //TODO: Implement deposit functionality
+    });
 
-  describe("when option 3 is selected", () => {
-    //TODO: Implement deposit functionality
   });
 });
