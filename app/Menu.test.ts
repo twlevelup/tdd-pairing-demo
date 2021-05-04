@@ -44,7 +44,7 @@ describe(Menu, () => {
         menu.menuFilterOption("2");
       });
 
-      it("should prompt for a deposit amount", () => {
+      it("should prompt for a withdrawal amount", () => {
         expect(lineReader.getLastQuestion()).toEqual(
           "Please enter an amount to withdraw: "
         );
@@ -82,7 +82,7 @@ describe(Menu, () => {
       });
 
       // TODO: I couldn't make it work, skipping this test for now
-      it.skip("should not procced with the withdrawal", () => {
+      it("should not procced with the withdrawal", () => {
         expect(linePrinter.getPrintedLine(0)).toEqual(
           "You can not withdraw amount $12000"
         );
@@ -91,9 +91,33 @@ describe(Menu, () => {
         );
       });
     });
-  });
+    
+    describe("when option 3 is selected", () => {
+      beforeEach(() => {
+        lineReader.setLineToRead("10000")
+        menu.menuFilterOption("3")
+      });
 
-  describe("when option 3 is selected", () => {
-    //TODO: Implement deposit functionality
+      it("should ask for amount to be deposited", () => {
+        expect(lineReader.getLastQuestion()).toEqual("Enter amount to be deposited: ");
+      })
+
+      it("should print final balance after a succesful deposit", ()=>{
+        expect(linePrinter.getPrintedLine(1)).toEqual(
+          `Your new account balance is $19000`
+        )
+      })
+    });
+
+    describe("when invalid option is selected", () => {
+      beforeEach(() => {
+        menu.menuFilterOption("5")
+      });
+
+      it("should warn the user that they selected an invalid option", () => {
+        expect(linePrinter.getPrintedLine(0)).toEqual("Select a valid option! ");
+      });
+    })
+
   });
 });

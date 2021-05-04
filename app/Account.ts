@@ -6,20 +6,20 @@ export class Account {
     this.ammountValue = initialBalance;
   }
 
-  /* Method to Check balance */
-  cb(): number {
+  checkBalance(): number {
     return this.ammountValue;
   }
 
-  /* Method to Deposit money */
-  dm(depoistAmount: number): number {
-    this.ammountValue += depoistAmount;
+  depositMoney(depositAmount: number): number {
+    this.ammountValue += depositAmount;
     return this.ammountValue;
   }
 
-  /* Method to Withdraw money */
-  wm(withDrawAmount: number): number {
+  withDrawMoney(withDrawAmount: number): boolean {
+    if (withDrawAmount > this.ammountValue) {
+      return false;
+    }
     this.ammountValue -= withDrawAmount;
-    return 1;
+    return true;
   }
 }

@@ -20,7 +20,7 @@ describe(App, () => {
   });
 
   it("prints Menu options", () => {
-    const menuOptions = ["Withdraw money", "Check balance", "Quit"];
+    const menuOptions = ["Withdraw money", "Check balance","Deposit", "Quit"];
     app.run();
 
     menuOptions.forEach((menuOption) => {
