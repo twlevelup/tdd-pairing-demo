@@ -91,10 +91,6 @@ describe(Menu, () => {
         );
       });
     });
-
-    describe("when option 3 is selected", () => {
-      //TODO: Implement deposit functionality
-    });
   });
 
   describe("when option 3 is selected", () => {
